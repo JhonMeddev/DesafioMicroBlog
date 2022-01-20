@@ -27,8 +27,9 @@ Detalhes de implementação:
 
    Endpoints no swagger através do link: http://localhost:8080/swagger-ui/
 
-   <div align="center"><img src="https://media.discordapp.net/attachments/900415954234773506/933084634416287804/Captura_de_tela_de_2022-01-18_16-44-45.png?width=1179&height=663" title="insomnia" /></div>
+   <div align="center"><img src="https://media.discordapp.net/attachments/900415954234773506/933541031096504370/capturadetela.png?width=1212&height=663" title="swagger" /></div>
 
 4. Endpoint /listagem paginado:
 
-   <div align="center"><img src="https://media.discordapp.net/attachments/900415954234773506/933541031096504370/capturadetela.png?width=1212&height=663" title="swagger" /></div>
+   <div align="center"><img src="https://media.discordapp.net/attachments/900415954234773506/933084634416287804/Captura_de_tela_de_2022-01-18_16-44-45.png?width=1179&height=663" title="insomnia" /></div>
+
