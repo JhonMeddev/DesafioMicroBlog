@@ -1,0 +1,205 @@
+_type: export
+__export_format: 4
+__export_date: 2022-01-18T15:27:34.040Z
+__export_source: insomnia.desktop.app:v2021.7.2
+resources:
+  - _id: req_fc20485c3d6a4465af56fa09938a5e2e
+    parentId: wrk_82876f8377ac4963a3ee25fb63120f68
+    modified: 1642519564881
+    created: 1642519512007
+    url: http://localhost:8080/postagens
+    name: Ver Postagens
+    description: ""
+    method: GET
+    body: {}
+    parameters: []
+    headers:
+      - id: pair_9d2cd64ad4c64d3a987348dfc795e76b
+        name: Authorization
+        value: Basic amhvbm1lZEBkZXYuY29tOmFkbTEyMzQ1Ng==
+        description: ""
+    authentication: {}
+    metaSortKey: -1642519512007
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: wrk_82876f8377ac4963a3ee25fb63120f68
+    parentId: null
+    modified: 1642438631929
+    created: 1642438631929
+    name: MicroBlog
+    description: ""
+    scope: collection
+    _type: workspace
+  - _id: req_cc8ab30e0dcd459bbb3937a186693699
+    parentId: wrk_82876f8377ac4963a3ee25fb63120f68
+    modified: 1642518923086
+    created: 1642517897031
+    url: localhost:8080/comentarios
+    name: ComentandoPostagem
+    description: ""
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+            "texto": "aprendendo muito com o desafio",
+            "usuario": {"id":1},
+            "postagem": {"id":1}
+        }
+    parameters: []
+    headers:
+      - id: pair_281e4eb98ae840ea9db26573b9545574
+        name: Authorization
+        value: Basic amhvbm1lZEBkZXYuY29tOmFkbTEyMzQ1Ng==
+        description: ""
+      - id: pair_b65dbfddd37d4826a7e59ea8fe4f848c
+        name: ""
+        value: ""
+        description: ""
+      - name: Content-Type
+        value: application/json
+        id: pair_f82c4d7c36dd45e0a0410acd402499ce
+    authentication: {}
+    metaSortKey: -1642517897031
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_6808b9c01bdf43b19b7fd85ff9183904
+    parentId: wrk_82876f8377ac4963a3ee25fb63120f68
+    modified: 1642519527142
+    created: 1642517559925
+    url: http://localhost:8080/postagens
+    name: Fazer Postagem
+    description: ""
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        	"titulo": "Desafio MicroBlog",
+        	"texto": "Aprendendo Muito"
+        }
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+        id: pair_1134b8ca7e724c27bfd6aaacfc5556b0
+      - id: pair_32bda12aab0c4aa3a22054f54a859427
+        name: Authorization
+        value: Basic amhvbm1lZEBkZXYuY29tOmFkbTEyMzQ1Ng==
+        description: ""
+    authentication:
+      type: basic
+      useISO88591: false
+      disabled: false
+      username: ""
+      password: ""
+    metaSortKey: -1642517559925
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_1567122fb349413bb2c0644b2271cf12
+    parentId: wrk_82876f8377ac4963a3ee25fb63120f68
+    modified: 1642518916540
+    created: 1642515495145
+    url: http://localhost:8080/usuarios/logar
+    name: login
+    description: ""
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        	"usuario": "jhonmed@dev.com",
+        	"senha": "adm123456"
+        }
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+        id: pair_89546cb342e744768d466425546f8d08
+    authentication: {}
+    metaSortKey: -1642515495145
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_f2908b53351b4e2794b9bb97dedab48a
+    parentId: wrk_82876f8377ac4963a3ee25fb63120f68
+    modified: 1642518913790
+    created: 1642515251942
+    url: http://localhost:8080/usuarios/cadastrar
+    name: Cadastrar
+    description: ""
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        	"nome": "JhonMed",
+        	"usuario": "jhonmed@dev.com",
+        	"tipo": "Autor",
+        	"senha": "adm123456",
+        	"foto": "sem foto"
+        }
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+        id: pair_543624a0838f44f1b125ec5220d87551
+    authentication: {}
+    metaSortKey: -1642515251942
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: env_cfed4155cc7e8e131edb1ec6d113eaa7a9e27600
+    parentId: wrk_82876f8377ac4963a3ee25fb63120f68
+    modified: 1642438631933
+    created: 1642438631933
+    name: Base Environment
+    data: {}
+    dataPropertyOrder: null
+    color: null
+    isPrivate: false
+    metaSortKey: 1642438631933
+    _type: environment
+  - _id: jar_cfed4155cc7e8e131edb1ec6d113eaa7a9e27600
+    parentId: wrk_82876f8377ac4963a3ee25fb63120f68
+    modified: 1642438631934
+    created: 1642438631934
+    name: Default Jar
+    cookies: []
+    _type: cookie_jar
+  - _id: spc_c441612d2cbf44e08244c7499d0a7aa5
+    parentId: wrk_82876f8377ac4963a3ee25fb63120f68
+    modified: 1642438631930
+    created: 1642438631930
+    fileName: MicroBlog
+    contents: ""
+    contentType: yaml
+    _type: api_spec
