@@ -42,7 +42,7 @@ public class Usuario {
 
 	@OneToMany(mappedBy = "usuario", cascade = CascadeType.REMOVE)
 	@JsonIgnoreProperties("usuario")
-	private List<Comentario> comentario;
+	private List<Postagem> postagem;
 
 
 	public Usuario(long id,  String nome, String usuario, String tipo, String senha,String foto) {
@@ -105,16 +105,13 @@ public class Usuario {
 		this.foto = foto;
 	}
 
-	public List<Comentario> getComentario() {
-		return comentario;
+	public List<Postagem> getPostagem() {
+		return postagem;
 	}
 
-	public void setComentario(List<Comentario> comentario) {
-		this.comentario = comentario;
+	public void setPostagem(List<Postagem> postagem) {
+		this.postagem = postagem;
 	}
-	
-	
-
 
 	
 }

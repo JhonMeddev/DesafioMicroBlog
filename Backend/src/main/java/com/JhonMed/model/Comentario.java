@@ -25,7 +25,7 @@ public class Comentario {
 	private long id;
 
 	@NotNull(message = "O atributo texto é obrigatório")
-	@Size(min = 10, max = 500, message = "O atributo texto deve conter no mínimo 10 e no máximo 500 caracteres")
+	@Size(min = 1, max = 500, message = "O atributo texto deve conter no mínimo 1 e no máximo 500 caracteres")
 	private String texto;
 
 	@Temporal(TemporalType.TIMESTAMP)
@@ -35,9 +35,6 @@ public class Comentario {
 	@JsonIgnoreProperties("comentario")
 	private Postagem postagem;
 
-	@ManyToOne
-	@JsonIgnoreProperties("comentario")
-	private Usuario usuario;
 
 	public long getId() {
 		return id;
@@ -72,13 +69,6 @@ public class Comentario {
 		this.postagem = postagem;
 	}
 
-	public Usuario getUsuario() {
-		return usuario;
-	}
-
-	public void setUsuario(Usuario usuario) {
-		this.usuario = usuario;
-	}
 
 
 }
