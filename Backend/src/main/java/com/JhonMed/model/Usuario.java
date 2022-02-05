@@ -37,22 +37,18 @@ public class Usuario {
 	@Size(min = 8, message = "A Senha deve ter no mínimo 8 caracteres")
 	private String senha;
 
-	private String foto;
-
-
 	@OneToMany(mappedBy = "usuario", cascade = CascadeType.REMOVE)
 	@JsonIgnoreProperties("usuario")
 	private List<Postagem> postagem;
 
 
-	public Usuario(long id,  String nome, String usuario, String tipo, String senha,String foto) {
+	public Usuario(long id,  String nome, String usuario, String tipo, String senha) {
 		super();
 		this.id = id;
 		this.nome = nome;
 		this.usuario = usuario;
 		this.tipo = tipo;
 		this.senha = senha;
-		this.foto = foto;
 	}
 	
 	public Usuario() {	}
@@ -95,14 +91,6 @@ public class Usuario {
 
 	public void setSenha(String senha) {
 		this.senha = senha;
-	}
-
-	public String getFoto() {
-		return foto;
-	}
-
-	public void setFoto(String foto) {
-		this.foto = foto;
 	}
 
 	public List<Postagem> getPostagem() {
