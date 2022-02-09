@@ -1,0 +1,169 @@
+<div class="container-fluid">
+
+  <div class="row bg-secondary d-flex align-items-center">
+    <div class="col-md-6">
+
+      <div class="row d-flex justify-content-center">
+        <div class="col-md-6 text-white">
+          <h1 class="fs-54">Seja bem vindo(a)!</h1>
+          <h5 class="fs-18">Expresse aqui seus pensamentos .</h5>
+        </div>
+      </div>
+
+      <div class="row d-flex justify-content-center mt-3 mb-5">
+        <div class="col-md-6">
+          <button class="btn btn-light mr-2" data-toggle="modal" data-target="#novaPostagem">Nova Postagem</button>
+          <a class="btn btn-outline-light" href="#postagens">Ver Postagens</a>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="cold-med-6 d-flex justify-content-center">
+      <img src="https://image.freepik.com/vetores-gratis/pessoas-conversando_53876-25458.jpg" alt="pessoas conversando" width="800px" height="500px">
+    </div>
+
+  </div>
+</div>
+
+<div class="container mb-5 mt-5 " id="postagens">
+
+  <nav>
+    <div class="nav nav-tabs d-flex justify-content-center" id="nav-tab" role="tablist">
+
+      <a class="nav-link active text-secondary font-weight-bold" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Todas Postagens</a>
+
+    </div>
+
+  </nav>
+  <div class="tab-content" id="nav-tabContent">
+
+    <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+
+      <div class="card">
+        <div class="card text-center" *ngFor='let item of listaPostagens'>
+          <div class="card-body">
+            <h5 class="card-title m-0">{{item.titulo}}</h5>
+
+            <p class="card-text mt-3">{{item.texto}}</p>
+
+            <p class="card-text"><small class="text-muted">{{item.data | date: 'dd/MM/yyyy'}} às {{item.data | date: 'HH:mm'}}</small></p>
+
+            <p class="card-text"><small class="text-muted">by: {{item.usuario.nome}}</small></p>
+
+
+
+            <!--COMENTARIOS-->
+            <div  *ngFor='let item of listaComentarios'>
+
+                  <p class="card-text mt-3">{{item.texto}}</p>
+
+                  <p class="card-text"><small class="text-muted">by: {{item.usuario.nome}}</small></p>
+
+                  <p class="card-text"><small class="text-muted">{{item.data | date: 'dd/MM/yyyy'}} às {{item.data | date: 'HH:mm'}}</small></p>
+
+                </div>
+
+            </div>
+
+            <form>
+
+              <div class="form-group">
+
+                <label for="texto" class="col-form-label">Comentario</label>
+
+                <textarea [(ngModel)]='comentario.texto' class="form-control" name="comentario" id="comentario" rows="2" placeholder="Escreva um comentario"></textarea>
+
+              </div>
+
+              <button type="button" class="btn btn-success" (click)='comentar()' data-dismiss="modal">Comentar</button>
+
+            </form>
+            <!--COMENTARIOS-->
+
+          </div>
+        </div>
+
+                            <!--COMENTARIOS-->
+
+                           <!-- <div class="card">
+                              <div class="card text-center" *ngFor='let item of listaComentarios'>
+                                <div class="card-body">
+                                  <p class="card-text mt-3">{{item.texto}}</p>
+
+                                  <p class="card-text"><small class="text-muted">{{item.data | date: 'dd/MM/yyyy'}} às {{item.data | date: 'HH:mm'}}</small></p>
+
+                                  <p class="card-text"><small class="text-muted">by: {{item.usuario.nome}}</small></p>
+
+                                </div>
+                              </div>
+                            </div>
+
+                            <form>
+
+                              <div class="form-group">
+                                <textarea [(ngModel)]='comentario.texto' class="form-control" name="texto" id="texto" rows="2" holdplace="Escreva um comentario"></textarea>
+                              </div>
+
+                              <button type="button" class="btn btn-success" (click)='comentar()' data-dismiss="modal">Comentar</button>
+
+                            </form>-->
+
+      </div>
+
+
+
+
+
+
+    </div>
+    </div>
+
+
+<div class="modal fade" id="novaPostagem" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+
+  <div class="modal-dialog">
+
+    <div class="modal-content">
+
+      <div class="modal-header">
+
+        <h5 class="modal-title" id="exampleModalLabel">Nova Postagem</h5>
+
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+
+          <span aria-hidden="true">&times;</span>
+
+        </button>
+
+      </div>
+
+
+      <div class="modal-body">
+
+
+        <form>
+
+          <div class="form-group">
+            <label for="titulo" class="col-form-label">Titulo</label>
+            <input [(ngModel)]='postagem.titulo' type="text" class="form-control" name="titulo" id="titulo" placeholder="Digite o titulo">
+          </div>
+
+          <div class="form-group">
+            <label for="texto" class="col-form-label">Texto</label>
+            <textarea [(ngModel)]='postagem.texto' class="form-control" name="texto" id="texto" rows="3"></textarea>
+          </div>
+
+        </form>
+
+
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-success" (click)='publicar()' data-dismiss="modal">Postar</button>
+      </div>
+
+    </div>
+  </div>
+</div>

@@ -1,0 +1,23 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-secondary">
+  <div class="container-fluid">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav mr-auto d-flex align-items-center">
+        <li class="nav-item p-3">
+          <p class="m-0 font-weight-bold text-light fs-16"> {{nome}}</p>
+        </li>
+        <li class="nav-item p-3">
+          <a href=""><p class="text-light fs-16 m-0"><i class="far fa-edit"></i></p></a>
+        </li>
+      </ul>
+
+      <ul class="navbar-nav ml-auto d-flex align-items-center">
+        <li class="nav-item p-3">
+          <a class="m-0 font-weight-bold text-light fs-16" (click)='sair()' >SAIR <i class="fas fa-sign-out-alt"></i></a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
