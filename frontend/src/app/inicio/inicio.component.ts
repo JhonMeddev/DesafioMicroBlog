@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Comentario } from '../model/Comentario';
 import { ComentarioService } from '../service/comentario.service';
+import { map, mergeMap, Observable } from 'rxjs';
 
 @Component({
   selector: 'app-inicio',
@@ -25,6 +26,8 @@ export class InicioComponent implements OnInit {
   user: Usuario = new Usuario();
   idUser = environment.id
 
+  todosPostsAndComents: any
+
   constructor(
     private router: Router,
     private postagemService: PostagemService,
@@ -41,14 +44,26 @@ export class InicioComponent implements OnInit {
     }
 
     this.authService.refreshToken()
-    this.getAllComentario()
-    this.getAllPostagens()
+    //this.getAllPostagens()
+    //this.getAllComentario()
+    this.getAllComentsAndPosts()
   }
 
-  getAllComentario(){
-    this.comentarioService.getAllComentario().subscribe((resp: Comentario[]) => {
-      this.listaComentarios = resp
+  getAllComentsAndPosts(){
+    this.getAllPostagens().pipe(
+      mergeMap((posts)=>this.getAllComentario().pipe(
+        map((coments)=>({posts, coments}))
+      ) )
+
+    ).subscribe((resp: any)=> {
+      this.todosPostsAndComents = resp
     })
+  }
+
+  getAllComentario(): Observable<any>{
+    return this.comentarioService.getAllComentario()/*.subscribe((resp: Comentario[]) => {
+      this.listaComentarios = resp
+    })*/
   }
 
   findByIdComentario(){
@@ -57,10 +72,10 @@ export class InicioComponent implements OnInit {
     })
   }
 
-  getAllPostagens(){
-    this.postagemService.getAllPostagens().subscribe((resp: Postagem[]) => {
+  getAllPostagens(): Observable<any>{
+    return this.postagemService.getAllPostagens()/*.subscribe((resp: Postagem[]) => {
       this.listaPostagens = resp
-    })
+    })*/
   }
 
   findByIdUser(){
@@ -83,9 +98,13 @@ export class InicioComponent implements OnInit {
     })
   }
 
-  comentar(){
+  comentar({post, coment}: any) {
 
-    this.user.id = this.idUser
+    console.log(post.id, coment.id)
+
+
+
+    /*this.user.id = this.idUser
     this.comentario.usuario = this.user
 
     this.comentarioService.postComentario(this.comentario).subscribe((resp: Comentario) => {
@@ -93,7 +112,7 @@ export class InicioComponent implements OnInit {
       alert('Comentario realizado com sucesso!')
       this.comentario = new Comentario()
       this.getAllComentario()
-    })
+    })*/
   }
 
 }

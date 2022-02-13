@@ -41,73 +41,82 @@
     <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
 
       <div class="card">
-        <div class="card text-center" *ngFor='let item of listaPostagens'>
+        <div class="card text-center" *ngFor='let post of todosPostsAndComents.posts; let it = index'>
           <div class="card-body">
-            <h5 class="card-title m-0">{{item.titulo}}</h5>
+            <h5 class="card-title m-0">{{post.titulo}}</h5>
 
-            <p class="card-text mt-3">{{item.texto}}</p>
+            <p class="card-text mt-3">{{post.texto}}</p>
 
-            <p class="card-text"><small class="text-muted">{{item.data | date: 'dd/MM/yyyy'}} às {{item.data | date: 'HH:mm'}}</small></p>
+            <p class="card-text"><small class="text-muted">{{post.data | date: 'dd/MM/yyyy'}} às {{post.data | date: 'HH:mm'}}</small></p>
 
-            <p class="card-text"><small class="text-muted">by: {{item.usuario.nome}}</small></p>
+            <p class="card-text"><small class="text-muted">by: {{post.usuario.nome}}</small></p>
 
+            <div class="card">
+              <div class="card text-center" *ngFor='let coment of todosPostsAndComents.coments'>
+            <p>{{coment.usuario}}</p>
+            <p>{{coment.texto}}</p>
+            <p>{{coment.data}}</p>
+
+
+           </div>
+
+
+           </div>
 
 
             <!--COMENTARIOS-->
-            <div  *ngFor='let item of listaComentarios'>
 
-                  <p class="card-text mt-3">{{item.texto}}</p>
+            <button class="btn btn-light mr-2" data-toggle="modal" data-target="#novoComentario">Comentar</button>
 
-                  <p class="card-text"><small class="text-muted">by: {{item.usuario.nome}}</small></p>
+            <div class="modal fade" id="novoComentario" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" >
 
-                  <p class="card-text"><small class="text-muted">{{item.data | date: 'dd/MM/yyyy'}} às {{item.data | date: 'HH:mm'}}</small></p>
+              <div class="modal-dialog">
+
+                <div class="modal-content">
+
+                  <div class="modal-header">
+
+                    <h5 class="modal-title" id="exampleModalLabel">Novo Comentario</h5>
+
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+
+                      <span aria-hidden="true">&times;</span>
+
+                    </button>
+
+                  </div>
+
+
+                  <div class="modal-body">
+
+
+                    <form>
+
+
+                      <div class="form-group">
+                        <label for="texto" class="col-form-label">Comentario</label>
+                        <textarea [(ngModel)]='comentario.texto' class="form-control" name="texto" id="texto" rows="3"></textarea>
+                      </div>
+
+                    </form>
+
+
+                  </div>
+
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-success" (click)='comentar({post})' data-dismiss="modal">Postar</button>
+                  </div>
 
                 </div>
-
+              </div>
             </div>
 
-            <form>
 
-              <div class="form-group">
-
-                <label for="texto" class="col-form-label">Comentario</label>
-
-                <textarea [(ngModel)]='comentario.texto' class="form-control" name="comentario" id="comentario" rows="2" placeholder="Escreva um comentario"></textarea>
-
-              </div>
-
-              <button type="button" class="btn btn-success" (click)='comentar()' data-dismiss="modal">Comentar</button>
-
-            </form>
             <!--COMENTARIOS-->
 
           </div>
         </div>
-
-                            <!--COMENTARIOS-->
-
-                           <!-- <div class="card">
-                              <div class="card text-center" *ngFor='let item of listaComentarios'>
-                                <div class="card-body">
-                                  <p class="card-text mt-3">{{item.texto}}</p>
-
-                                  <p class="card-text"><small class="text-muted">{{item.data | date: 'dd/MM/yyyy'}} às {{item.data | date: 'HH:mm'}}</small></p>
-
-                                  <p class="card-text"><small class="text-muted">by: {{item.usuario.nome}}</small></p>
-
-                                </div>
-                              </div>
-                            </div>
-
-                            <form>
-
-                              <div class="form-group">
-                                <textarea [(ngModel)]='comentario.texto' class="form-control" name="texto" id="texto" rows="2" holdplace="Escreva um comentario"></textarea>
-                              </div>
-
-                              <button type="button" class="btn btn-success" (click)='comentar()' data-dismiss="modal">Comentar</button>
-
-                            </form>-->
 
       </div>
 

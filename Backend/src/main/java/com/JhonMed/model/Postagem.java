@@ -92,9 +92,6 @@ public class Postagem {
 
 	public void setComentario(List<Comentario> comentario) {
 		this.comentario = comentario;
-	}
-
-
-	
+	}	
 	
 }
